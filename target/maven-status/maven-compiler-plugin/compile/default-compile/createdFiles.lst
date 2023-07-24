@@ -1,0 +1,10 @@
+com\example\cirp\ComponentsImpl.class
+com\example\cirp\Components.class
+com\example\cirp\domain\CounterProvider.class
+com\example\cirp\domain\Counter.class
+com\example\cirp\KalixFactory.class
+com\example\cirp\Components$CounterCalls.class
+com\example\cirp\Main.class
+com\example\cirp\domain\AbstractCounter.class
+com\example\cirp\domain\CounterRouter.class
+com\example\cirp\ComponentsImpl$CounterCallsImpl.class

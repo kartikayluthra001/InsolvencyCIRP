@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.example.cirp.domain;
+
+option java_outer_classname = "RegisterationDomain";
+
+message RegisterState {
+  string username = 1;
+  string email =2;
+  int64 contact = 3;
+  string password = 4;
+}

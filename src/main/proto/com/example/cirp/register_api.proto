@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "kalix/annotations.proto";
+import "google/api/annotations.proto";
+
+package com.example.cirp;
+
+option java_outer_classname = "RegistrationAPI";
+
+message UserDetails {
+  string username = 1 [(kalix.field).entity_key=true]; // The primary key
+  string password = 2;
+  int64 contact = 3;
+  string email = 4;
+  string companyName=5;
+}
+
+message otp {
+  int64 otp = 1;
+  int64 isVerified = 2;
+}
+
+message verifyotpResponse {
+  bool isVerified = 1 ;
+}
+
+message getUser {
+  string username = 1;
+}
+
+service RegistrationService {
+  option (kalix.codegen) = {
+    value_entity: {
+      name: "com.example.cirp.domain.Registeration"
+      entity_type: "Register"
+      state: "com.example.cirp.domain.RegisterState"
+    }
+  };
+  option (kalix.service).acl.allow = { principal: ALL };
+
+  rpc CreateUser (UserDetails) returns (google.protobuf.Empty) {}
+  rpc VerifyOtp(otp) returns (verifyotpResponse){}
+  rpc GetUser (getUser) returns (UserDetails) {}
+  
+}
